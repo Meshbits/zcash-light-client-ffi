@@ -18,11 +18,22 @@ schemer = "0.2.1"
 secp256k1 = "0.21"
 secrecy = "0.8"
 
-zcash_address = { version = "0.2" }
-zcash_client_backend = { version = "0.6.1", features = ["transparent-inputs", "unstable"] }
-zcash_client_sqlite = { version = "0.4.2", features = ["transparent-inputs", "unstable"] }
-zcash_primitives = "0.9.1"
-zcash_proofs = "0.9"
+# zcash_address = { version = "0.2" }
+# zcash_client_backend = { version = "0.6.1", features = ["transparent-inputs", "unstable"] }
+# zcash_client_sqlite = { version = "0.4.2", features = ["transparent-inputs", "unstable"] }
+# zcash_primitives = "0.9.1"
+# zcash_proofs = "0.9"
+
+# Revision corresponds to zcash_primitives 0.6.0 plus the NU5 mainnet activation height.
+# We also need zcash_client_backend and zcash_client_sqlite, which haven't been published
+# with NU5 updates yet.
+[patch.crates-io]
+zcash_address = { git = 'https://github.com/Meshbits/librustzcash.git', rev='a151c7bcdd1d9ac1a69f5ccea28e8ad64aa7adfa' }
+zcash_client_backend = { git = 'https://github.com/Meshbits/librustzcash.git', rev='a151c7bcdd1d9ac1a69f5ccea28e8ad64aa7adfa' }
+zcash_client_sqlite = { git = 'https://github.com/Meshbits/librustzcash.git', rev='a151c7bcdd1d9ac1a69f5ccea28e8ad64aa7adfa' }
+zcash_primitives = { git = 'https://github.com/Meshbits/librustzcash.git', rev='a151c7bcdd1d9ac1a69f5ccea28e8ad64aa7adfa' }
+zcash_proofs = { git = 'https://github.com/Meshbits/librustzcash.git', rev='a151c7bcdd1d9ac1a69f5ccea28e8ad64aa7adfa' }
+
 
 [build-dependencies]
 cbindgen = "0.14"
